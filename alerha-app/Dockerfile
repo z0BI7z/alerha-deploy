@@ -2,7 +2,7 @@ FROM node:12
 
 ENV PORT=3000
 ENV MONGODB_URI=mongodb://mongo:27017/alerha
-ENV REACT_APP_API_URL=http://alorha.com:8080
+ENV REACT_APP_API_URL=http://alerha.com:8080
 
 RUN git clone https://github.com/z0BI7z/alerha-client.git client
 RUN git clone https://github.com/z0BI7z/alerha-server.git /server

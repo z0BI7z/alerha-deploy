@@ -3,19 +3,16 @@ services:
   mongo:
     image: mongo
     restart: always
-    external_links:
-      - "mongo"
     volumes:
       - /data/alerha/db:/data/db
-  app:
-    build: ./alerha-app
-    external_links:
-      - "app"
+  api:
+    build: ./alerha-api
+    restart: always
     depends_on:
       - mongo
   nginx:
     build: ./alerha-nginx
     depends_on:
-      - app
+      - api
     ports:
       - "8080:80"

@@ -2,6 +2,8 @@ FROM node:12
 
 RUN git clone https://github.com/z0BI7z/alerha-client.git /app
 
+COPY ./.env /app
+
 WORKDIR /app
 
 RUN npm i

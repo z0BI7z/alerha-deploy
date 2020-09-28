@@ -1,6 +1,6 @@
 FROM node:12
 
-COPY ./alerha-client /app
+RUN git clone https://github.com/z0BI7z/alerha-client.git /app
 
 WORKDIR /app
 

@@ -12,6 +12,7 @@ services:
       - mongo
   nginx:
     build: ./alerha-nginx
+    restart: always
     depends_on:
       - api
     ports:
@@ -20,14 +21,3 @@ services:
     volumes:
       - ./certbot-etc:/etc/letsencrypt
       - ./certbot-var:/var/letsencrypt
-      - ./webroot:/var/www/html
-  # certbot:
-  #   image: certbot/certbot
-  #   container_name: certbot
-  #   volumes:
-  #     - ./certbot-etc:/etc/letsencrypt
-  #     - ./certbot-var:/var/lib/letsencrypt
-  #     - ./webroot:/var/www/html
-  #   depends_on:
-  #     - nginx
-  #   command: certonly --webroot -w /var/www/html --email test@alerha.com --agree-tos --no-eff-email --force-renewal -d alerha.com -d www.alerha.com -d api.alerha.com

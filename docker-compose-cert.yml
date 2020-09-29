@@ -1,0 +1,17 @@
+version: "3"
+services: 
+  certnginx:
+    build: ./cert-nginx
+    ports:
+      - "80:80"
+    volumes:
+      - ./webroot:/var/www/html
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./certbot-etc:/etc/letsencrypt
+      - ./certbot-var:/var/lib/letsencrypt
+      - ./webroot:/var/www/html
+    depends_on:
+      - certnginx
+    command: certonly --webroot -w /var/www/html --email test@alerha.com --agree-tos --no-eff-email --force-renewal -d alerha.com -d www.alerha.com -d api.alerha.com

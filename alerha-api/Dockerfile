@@ -1,9 +1,8 @@
 FROM node:12
 
-ENV PORT=3000
-ENV MONGODB_URI=mongodb://mongo:27017/alerha
-
 RUN git clone https://github.com/z0BI7z/alerha-server.git /server
+
+COPY ./.env ./server
 
 WORKDIR /server
 

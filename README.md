@@ -1,3 +1,3 @@
 # Alerha Deploy
 
-Deployment for [alerha.com](alerha.com).
+Deployment for [alerha.com](https://alerha.com).

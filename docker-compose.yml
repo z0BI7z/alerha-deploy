@@ -5,6 +5,7 @@ services:
     restart: always
     volumes:
       - /data/alerha/db:/data/db
+      - /data/alerha/configdb:/data/configdb
   api:
     build: ./alerha-api
     restart: always
